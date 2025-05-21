@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计数器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
+</head>
+<body>
+<div id="app" style="text-align: center; margin-top: 50px;">
+    <h1>计数器</h1>
+    <button @click="decrement">减少</button>
+     <span>{{ count }}</span>
+    <button @click="increment">增加</button>
+    <button @click="reset">清零</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+        methods: {
+            increment() {
+                this.count++;
+            },
+            decrement() {
+                if (this.count > 0) {
+                    this.count--;
+                }
+            },
+            reset() {
+                this.count = 0;
+            }
+        }
+    });
+</script>
+</body>
+</html>

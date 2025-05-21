@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景颜色调整器</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>   
+</head>
+<style>
+    table {
+        border-collapse: collapse; 
+    }
+    td {
+        border: 1px solid black;
+        width: 200px;
+        height: 100px;
+    }
+</style>
+<body>
+    <div id="app">
+        <h1>背景颜色调整器</h1>
+        <table>
+            <tr>
+                <td :style="{ backgroundColor: color1 }" @click="color1 = 'blue'">蓝色</td>
+                <td :style="{ backgroundColor: color2 }" @click="color2 = 'darkmagenta'">紫色</td>
+                <td :style="{ backgroundColor: color3 }" @click="color3 = 'green'">绿色</td>
+                <td @click="resetColors()">还原</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                color1: 'white',
+                color2: 'white',
+                color3: 'white',
+            },
+            methods: {
+                resetColors() {
+                    this.color1 = 'white';
+                    this.color2 = 'white';
+                    this.color3 = 'white';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue学习资料计算</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <label>您选择的是:</label>
+      Vue学习资料，出版社：重庆工程学院
+    </div>
+    <div>
+      <label>选择数量:</label>
+      <button @click="decrease">-</button>
+      <input type="number" v-model.number="quantity" min="1">
+      <button @click="increase">+</button>
+      本
+    </div>
+    <div >
+      <label>设置单价:</label>
+      <input type="number" v-model.number="price" min="0">
+      元/件
+    </div>
+    <div>
+      <label>设置运费:</label>
+      <input type="number" v-model.number="shipping" min="0">
+      元
+    </div>
+    <div >
+      <label>总价:</label>
+      <span>{{ total }}元</span>
+    </div>
+  </div>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        quantity: 1,
+        price: 10,
+        shipping: 0
+      },
+      computed: {
+        total() {
+          return this.quantity * this.price + this.shipping;
+        }
+      },
+      methods: {
+        increase() {
+          this.quantity++;
+        },
+        decrease() {
+          if (this.quantity > 1) {
+            this.quantity--;
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>
